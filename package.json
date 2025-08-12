@@ -1,0 +1,34 @@
+{
+  "name": "playwright-bdd-vt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "rimraf .features-gen && rimraf allure-results",
+    "test": "npx bddgen && npx playwright test",
+    "test:dev": "npx bddgen && cross-env ENV=dev npx playwright test",
+    "test:qa": "npx bddgen && cross-env ENV=qa npx playwright test",
+    "test:uat": "npx bddgen && cross-env ENV=uat npx playwright test",
+    "test:allure": "npx bddgen && cross-env ALLURE_RESULTS_DIR=allure-results npx playwright test",
+    "test:allure:dev": "npx bddgen && cross-env ENV=dev ALLURE_RESULTS_DIR=allure-results npx playwright test",
+    "test:allure:qa": "npx bddgen && cross-env ENV=qa ALLURE_RESULTS_DIR=allure-results npx playwright test",
+    "test:allure:uat": "npx bddgen && cross-env ENV=uat ALLURE_RESULTS_DIR=allure-results npx playwright test",
+    "allure:report": "allure generate allure-results --clean -o allure-report && allure open"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.54.2",
+    "@types/node": "^24.2.0",
+    "allure-commandline": "^2.34.1",
+    "allure-playwright": "^3.3.2",
+    "playwright": "^1.54.2",
+    "playwright-bdd": "^8.3.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "tesseract.js": "^6.0.1"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "dev": {
+    "ETRAIN_URL": "https://etrain.info/in",
+    "BLAZEDEMO_URL": "https://blazedemo.com",
+    "PLAYWRIGHT_URL": "https://playwright.dev",
+    "ECOMMERCE_URL": "https://rahulshettyacademy.com/client/#/auth/login",
+    "SKILLS_YOU_NEED_URL": "https://www.skillsyouneed.com/num/graphs-charts.html",
+    "CHARTJS_URL": "https://www.chartjs.org/docs/latest/samples/area/line-datasets.html",
+    "ECOMMERCE_USERNAME": "rahulshukla0312@gmail.com",
+    "ECOMMERCE_PASSWORD": "Automation@123"
+  },
+  "qa": {
+    "ETRAIN_URL": "",
+    "BLAZEDEMO_URL": "",
+    "PLAYWRIGHT_URL": "",
+    "ECOMMERCE_URL": "",
+    "SKILLS_YOU_NEED_URL": "",
+    "CHARTJS_URL": "",
+    "ECOMMERCE_USERNAME": "",
+    "ECOMMERCE_PASSWORD": ""
+  },
+  "uat": {
+    "ETRAIN_URL": "",
+    "BLAZEDEMO_URL": "",
+    "PLAYWRIGHT_URL": "",
+    "ECOMMERCE_URL": "",
+    "SKILLS_YOU_NEED_URL": "",
+    "CHARTJS_URL": "",
+    "ECOMMERCE_USERNAME": "",
+    "ECOMMERCE_PASSWORD": ""
+  }
+}
