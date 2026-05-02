@@ -7,6 +7,8 @@ test-results/
 .features-gen/
 
 # Screenshots and Visual Testing
+!screenshots/
+!screenshots/Proof.png
 screenshots/
 
 # Dependencies
