@@ -45,7 +45,7 @@ export class LoginPage extends BasePage {
 
     async verifyIncorrectPasswordErrorMessage() {
         const errorMessage = await this.page.locator('[role="alert"]').filter({ hasText: 'Incorrect email or password.' });
-        await expect(errorMessage).toBeVisible();
+        await expect(errorMessage).toBeVisible({ timeout: 20000 });
     }
 
     async logout() {

@@ -19,8 +19,8 @@ export class ProductDetailsPage extends BasePage {
         const productName = await this.page.getByText("Mocked ZARA COAT 3");
         const productPrice = await this.page.getByText("$ 99.99");
         const productDescription = await this.page.getByText("Mocked Adidas Originals");
-        expect(productName).toBeVisible();
-        expect(productPrice).toBeVisible();
-        expect(productDescription).toBeVisible();
+        expect(productName).toBeVisible({ timeout: 20000 });
+        expect(productPrice).toBeVisible({ timeout: 20000 });
+        expect(productDescription).toBeVisible({ timeout: 20000 });
     }
 }

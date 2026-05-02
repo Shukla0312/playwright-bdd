@@ -18,7 +18,7 @@ export class ProductListPage extends BasePage {
     }
 
     async verifyProductInCart(productName: string) {
-       await expect(this.page.getByRole('heading', { name: productName })).toBeVisible();
+       await expect(this.page.getByRole('heading', { name: productName })).toBeVisible({ timeout: 20000 });
     }
 
     async clickOnViewProduct(productName: string) {

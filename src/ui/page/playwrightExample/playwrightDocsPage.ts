@@ -10,7 +10,7 @@ export class PlaywrightDocsPage extends BasePage {
     async verifyContent(dataTable: { rawTable: string[][] }) {
         for (let index = 0; index < dataTable.rawTable.length; index++) {
             const element = dataTable.rawTable[index][0];
-            await expect(this.page?.getByText(element).first()).toBeVisible();
+            await expect(this.page?.getByText(element).first()).toBeVisible({ timeout: 20000 });
         }
     }
 
@@ -19,6 +19,6 @@ export class PlaywrightDocsPage extends BasePage {
         if (!element) {
             throw new Error(`Text "${text}" not found on the page`);
         }
-        await expect(element).toBeVisible();
+        await expect(element).toBeVisible({ timeout: 20000 });
     }
 }

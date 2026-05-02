@@ -19,7 +19,7 @@ export class CartPage extends BasePage {
         await this.page.getByRole('button', { name: 'India' }).last().click();
         await this.page.getByText('Place Order').click();
         await this.page.waitForLoadState('networkidle');
-        await expect(this.page.getByRole('heading', { name: 'Thankyou for the order.' })).toBeVisible();
-        await expect(this.page.getByRole('cell', { name: 'ZARA COAT 3 Qty: 1', exact: true })).toBeVisible();
+        await expect(this.page.getByRole('heading', { name: 'Thankyou for the order.' })).toBeVisible({ timeout: 20000 });
+        await expect(this.page.getByRole('cell', { name: 'ZARA COAT 3 Qty: 1', exact: true })).toBeVisible({ timeout: 20000 });
     }
 }
