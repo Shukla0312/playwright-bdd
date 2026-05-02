@@ -7,9 +7,9 @@ test-results/
 .features-gen/
 
 # Screenshots and Visual Testing
+screenshots/
 !screenshots/
 !screenshots/Proof.png
-screenshots/
 
 # Dependencies
 node_modules/
