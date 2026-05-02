@@ -219,18 +219,103 @@ npx bddgen && npx playwright test --grep @smoke --reporter=list
 Sample output:
 
 ```text
-Running 1 test using 1 worker
-  ✓  1 …merce checkout › User completes purchase successfully @e2e @smoke (6.2s)
+Running 11 tests using 4 workers
+
+     1 …etains the selected product after add-to-cart › And I view the cart @regression
+     2 …eckout › User completes purchase successfully › And I view the cart @e2e @smoke
+     3 …er Product › Successful Product Order › Then I should be logged in successfully
+  ✓  4 …eDemo › User selects a United Airlines flight and completes the purchase (3.8s)
+STEP: Navigate to ecommerce website
+STEP: Navigate to ecommerce website
 STEP: Navigate to ecommerce website
 STEP: Logging in with valid configured credentials
 STEP: Verifying successful login
+STEP: Logging in with valid configured credentials
+STEP: Verifying successful login
+  ✓  5 …le View on eTrain › Search trains between two stations and view schedule (1.3s)
+STEP: Add product "Zara Coat 3" to the cart
 STEP: Add product "Zara Coat 3" to the cart
 STEP: View cart contents
+STEP: View cart contents
+STEP: Entering valid credentials on login page
+STEP: Verifying successful login
+     6 …in with valid credentials › Then I should be logged in successfully @regression
+STEP: Navigate to ecommerce website
+     3 …rce/orderProduct.feature.spec.js:6:7 › Order Product › Successful Product Order
+STEP: Add product "Zara Coat 3" to the cart
+STEP: View cart contents
+  ✓  2 …› E-commerce checkout › User completes purchase successfully @e2e @smoke (8.0s)
 STEP: Verify that "Zara Coat 3" is present in the cart
 STEP: Proceed to checkout
+  ✓  1 …dation › Cart retains the selected product after add-to-cart @regression (6.8s)
+STEP: Verify that "Zara Coat 3" is present in the cart
 STEP: Enter shipping details and confirm order
+STEP: Verify that "Zara Coat 3" is present in the cart
+STEP: Proceed to checkout
+  ✓  7 …/example.feature.spec.js:6:7 › Example feature › Open Playwright website (2.6s)
+STEP: Enter shipping details and confirm order
+STEP: Entering valid credentials on login page
+STEP: Verifying successful login
+  ✓  6 …ogin Functionality › Successful login with valid credentials @regression (4.2s)
+STEP: Clicking logout
+STEP: Verifying successful logout
+     8 …onsole › When I should extract the text from canvas and print it in the console
+     9 …ogin with invalid credentials › Given I visit the eCommerce website @regression
+STEP: Navigate to ecommerce website
+     10 …mage and print it in the console › Given I navigate to Skills You Need website
+  ✓  3 …erProduct.feature.spec.js:6:7 › Order Product › Successful Product Order (9.2s)
+Extracted text from canvas: IE oe [Em 01 [TT] ee [EE] 03 [EE 0% 05 [EN] 06 [EN] 07 [I] 6 [09
 
-  1 passed (7.2s)
+ao
+050
+a0
+250
+20
+150
+100
+
+50 —
+
+0
+
+January February March april May June ay August
+
+  ✓  8 …7 › OCR from image › Extract text from image and print it in the console (3.3s)
+Image too small to scale!! (2x36 vs min width of 3)
+Extracted text: Some Data
+B
+a
+3
+2
+1
+|
+Category 1 Category 2 Category 3 Category 4
+
+  ✓  9 … Login Functionality › Failed login with invalid credentials @regression (4.8s)
+STEP: Entering invalid credentials on login page
+STEP: Verifying invalid login error message
+     11 …eld validation on login form › Given I visit the eCommerce website @regression
+STEP: Navigate to ecommerce website
+  ✓  10 … › OCR from image › Extract text from image and print it in the console (5.5s)
+Screenshot saved to /Users/rahul/Desktop/Projects/playwright-bdd/screenshots/charts.png
+Image too small to scale!! (2x36 vs min width of 3)
+Extracted text: Some Data
+B
+a
+3
+2
+1
+|
+Category 1 Category 2 Category 3 Category 4
+
+Line cannot be recognized!!
+Image too small to scale!! (2x36 vs min width of 3)
+Line cannot be recognized!!
+  ✓  11 …gin Functionality › Required field validation on login form @regression (2.5s)
+STEP: Clicking the login button without credentials
+STEP: Verifying mandatory field validation
+
+  11 passed (18.0s)
 ```
 
 Execution proof screenshot:
