@@ -1,4 +1,4 @@
-// Generated from: src\ui\feature\etrain\etrain.feature
+// Generated from: src/ui/feature/etrain/etrain.feature
 import { test } from "playwright-bdd";
 
 test.describe('Train Search and Schedule View on eTrain', () => {
@@ -22,7 +22,7 @@ test.beforeEach('BeforeEach Hooks', ({ $beforeEach }) => {});
 
 test.use({
   $test: ({}, use) => use(test),
-  $uri: ({}, use) => use('src\\ui\\feature\\etrain\\etrain.feature'),
+  $uri: ({}, use) => use('src/ui/feature/etrain/etrain.feature'),
   $bddFileData: ({}, use) => use(bddFileData),
   $beforeEachFixtures: ({ page }, use) => use({ page }),
 });

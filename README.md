@@ -1,49 +1,88 @@
 # Playwright BDD Test Automation Framework
 
-A comprehensive Behavior Driven Development (BDD) test automation framework built with Playwright and Cucumber for both UI and API testing.
+A production-ready Playwright BDD framework with business-focused eCommerce and login test coverage, designed for collaboration between QA, developers, and product teams.
 
 ## 📋 Table of Contents
 - [Overview](#overview)
-- [Features](#features)
-- [Tech Stack](#tech-stack)
+- [Architecture](#architecture)
+- [Why BDD](#why-bdd)
+- [Key Features](#key-features)
 - [Project Structure](#project-structure)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Configuration](#configuration)
 - [Running Tests](#running-tests)
+- [Tagging and Filtering](#tagging-and-filtering)
+- [⚡ Quick Demo](#-quick-demo)
 - [Test Reports](#test-reports)
 - [Test Scenarios](#test-scenarios)
 - [Environment Management](#environment-management)
+- [CI/CD Integration](#ci-cd-integration)
 - [Contributing](#contributing)
+- [Author](#author)
+- [License](#license)
 
 ## 🔍 Overview
 
-This project implements a modern test automation framework using Playwright with BDD approach (Gherkin syntax). It supports both UI and API testing with comprehensive reporting capabilities using Allure and built-in Playwright reports.
+This repository is upgraded from a demo project into a production-ready Playwright BDD framework. It delivers clear business scenarios, a reusable step/page architecture, and execution-ready configuration for stable end-to-end automation.
 
-## ✨ Features
+## 🏗 Architecture
 
-- **BDD Framework**: Uses Gherkin syntax for readable test scenarios
-- **Multi-browser Support**: Cross-browser testing with Chromium, Firefox, and Safari
-- **Environment Management**: Support for multiple environments (dev, qa, uat)
-- **Comprehensive Reporting**: 
-  - Allure reports with rich visualizations
-  - Playwright HTML reports
-  - Cucumber reports
-- **Visual Testing**: Screenshot comparison and chart analysis
-- **API Testing**: API mocking and validation capabilities
-- **OCR Integration**: Text extraction using Tesseract.js
-- **Video Recording**: Test execution recordings for debugging
-- **Parallel Execution**: Faster test execution with parallel runs
+The framework follows a clean BDD execution flow:
 
-## 🛠 Tech Stack
+1. **Feature**: business-readable Gherkin scenarios
+2. **Step**: reusable step definitions that map Gherkin to code
+3. **Page**: page objects that encapsulate UI interactions
+4. **Playwright**: browser execution, reporting, and retries
 
-- **Playwright**: Modern web automation framework
-- **TypeScript**: Type-safe JavaScript
-- **Cucumber/Gherkin**: BDD test scenarios
-- **playwright-bdd**: Integration between Playwright and Cucumber
-- **Allure**: Advanced test reporting
-- **Tesseract.js**: OCR for text extraction
-- **Node.js**: Runtime environment
+This separation keeps tests maintainable, reduces duplicate Playwright calls, and ensures business intent is visible at the scenario level.
+
+## 💡 Why BDD
+
+Traditional UI tests can become brittle and hard to read when test logic is mixed with implementation details. BDD keeps acceptance criteria written in plain language, so non-technical stakeholders can review the same scenarios as engineers.
+
+Benefits:
+- Better collaboration between product, QA, and engineering
+- Clear requirements expressed as executable scenarios
+- Easier onboarding for new team members
+- Scalable test suites that separate intent from implementation
+
+## ✨ Key Features
+
+- **Production-Ready**: Real business scenarios with proper error handling
+- **Tag-Based Execution**: @smoke, @regression, @e2e tags for selective test runs
+- **Retry Mechanism**: Built-in retry support for flaky tests
+- **Multiple Environments**: dev, qa, uat environment support
+- **Rich Reporting**: Allure, Playwright HTML, and Cucumber reports
+- **Visual Testing**: Screenshot comparison and OCR capabilities
+- **API Testing**: Mocking and validation capabilities
+- **Parallel Execution**: Faster test execution with parallel workers
+- **TypeScript**: Full type safety and modern development experience
+
+## 🔍 Overview
+
+This repository is upgraded from a demo project into a production-ready Playwright BDD framework. It delivers clear business scenarios, a reusable step/page architecture, and execution-ready configuration for stable end-to-end automation.
+
+## 🏗 Architecture
+
+The framework follows a clean BDD execution flow:
+
+1. **Feature**: business-readable Gherkin scenarios
+2. **Step**: reusable step definitions that map Gherkin to code
+3. **Page**: page objects that encapsulate UI interactions
+4. **Playwright**: browser execution, reporting, and retries
+
+This separation keeps tests maintainable, reduces duplicate Playwright calls, and ensures business intent is visible at the scenario level.
+
+## 💡 Why BDD
+
+Traditional UI tests can become brittle and hard to read when test logic is mixed with implementation details. BDD keeps acceptance criteria written in plain language, so non-technical stakeholders can review the same scenarios as engineers.
+
+Benefits:
+- Better collaboration between product, QA, and engineering
+- Clear requirements expressed as executable scenarios
+- Easier onboarding for new team members
+- Scalable test suites that separate intent from implementation
 
 ## 📁 Project Structure
 
@@ -55,28 +94,39 @@ playwright-bdd/
 │   │   └── step/             # API step definitions
 │   ├── ui/
 │   │   ├── feature/          # UI test scenarios (.feature files)
-│   │   │   ├── login/
-│   │   │   ├── etrain/
-│   │   │   ├── ecommerce/
-│   │   │   ├── blazeDemo/
-│   │   │   └── visualTests/
-│   │   └── step/             # UI step definitions
-│   └── resources/            # Test data and utilities
-├── allure-results/           # Allure test results
-├── allure-report/           # Generated Allure reports
-├── cucumber-report/         # Cucumber HTML reports
-├── playwright-report/       # Playwright HTML reports
-├── screenshots/             # Test screenshots
-├── test-results/           # Playwright test artifacts
-├── config.json             # Environment configurations
-├── playwright.config.ts    # Playwright configuration
-└── package.json           # Project dependencies
+│   │   │   ├── login/        # Login functionality tests
+│   │   │   ├── ecommerce/    # E-commerce flows (checkout, cart)
+│   │   │   ├── blazeDemo/    # Flight booking demos
+│   │   │   ├── etrain/       # Train search demos
+│   │   │   ├── visualTests/  # Visual regression tests
+│   │   │   └── playwrightExample/ # Playwright docs examples
+│   │   ├── step/             # UI step definitions
+│   │   └── page/             # Page object models
+│   └── resources/            # Shared utilities and configuration
+│       ├── config/           # Configuration management
+│       ├── fixture/          # Test data and mocks
+│       └── fixture.ts        # BDD fixture setup
+├── config.json              # Environment configurations
+├── playwright.config.ts     # Playwright test configuration
+├── package.json             # Project dependencies and scripts
+├── tsconfig.json           # TypeScript configuration
+├── .gitignore              # Git ignore rules
+└── README.md               # This file
 ```
+
+### Key Directories Explained
+
+- `src/ui/feature/` — Gherkin feature files for UI test flows
+- `src/api/feature/` — Gherkin feature files for API test flows
+- `src/ui/step/` — Reusable UI step definitions with console logging
+- `src/api/step/` — Reusable API step definitions
+- `src/ui/page/` — Page objects that encapsulate UI interactions
+- `src/resources/` — Shared fixtures, configuration, and helper utilities
 
 ## 📋 Prerequisites
 
-- Node.js (version 16 or higher)
-- npm or yarn package manager
+- Node.js 16 or higher
+- npm package manager
 
 ## 🚀 Installation
 
@@ -98,7 +148,7 @@ npx playwright install
 
 ## ⚙️ Configuration
 
-The framework uses environment-specific configurations stored in `config.json`:
+The framework uses `config.json` for environment-specific values. Example:
 
 ```json
 {
@@ -110,123 +160,270 @@ The framework uses environment-specific configurations stored in `config.json`:
 }
 ```
 
-Update the configuration file with your environment-specific values.
+Update the file for your target environment before running tests.
+
+The Playwright configuration includes retry support for transient UI flakiness.
 
 ## 🏃‍♂️ Running Tests
 
-### Basic Test Execution
+### Basic Execution
 
 ```bash
-# Run all tests
 npm test
+```
 
-# Run tests for specific environment
+### Environment Execution
+
+```bash
 npm run test:dev
 npm run test:qa
 npm run test:uat
 ```
 
-### Tests with Allure Reporting
+### Smoke Execution
 
 ```bash
-# Run tests and generate Allure results
-npm run test:allure
-
-# Run tests for specific environment with Allure
-npm run test:allure:dev
-npm run test:allure:qa
-npm run test:allure:uat
+npx playwright test --grep @smoke
 ```
 
-### Generate and Open Allure Report
+### Optional npm shortcut
 
 ```bash
-npm run allure:report
+npm run test:smoke
 ```
+
+## 🏷 Tagging and Filtering
+
+The repository now uses Gherkin tags to separate smoke, regression, and end-to-end flows.
+
+Examples:
+- `@smoke` — fast verification of key business paths
+- `@regression` — deeper validation and negative paths
+- `@e2e` — full checkout and end-to-end flows
+
+Use tags with Playwright:
+
+```bash
+npx playwright test --grep @smoke
+npx playwright test --grep @regression
+```
+
+## ⚡ Quick Demo
+
+Run the smoke suite:
+
+```bash
+npx bddgen && npx playwright test --grep @smoke --reporter=list
+```
+
+Sample output:
+
+```text
+Running 1 test using 1 worker
+  ✓  1 …merce checkout › User completes purchase successfully @e2e @smoke (6.2s)
+STEP: Navigate to ecommerce website
+STEP: Logging in with valid configured credentials
+STEP: Verifying successful login
+STEP: Add product "Zara Coat 3" to the cart
+STEP: View cart contents
+STEP: Verify that "Zara Coat 3" is present in the cart
+STEP: Proceed to checkout
+STEP: Enter shipping details and confirm order
+
+  1 passed (7.2s)
+```
+
+Execution proof screenshot:
+
+![Execution Proof](screenshots/Proof.png)
+
+> The screenshot is saved at `screenshots/Proof.png` as evidence of the successful smoke run.
 
 ## 📊 Test Reports
 
-The framework generates multiple types of reports:
-
-1. **Allure Reports**: Rich, interactive reports with test history, trends, and detailed execution logs
-2. **Playwright Reports**: Built-in HTML reports with traces, screenshots, and videos
-3. **Cucumber Reports**: Traditional BDD-style reports
-
-Reports are automatically generated in their respective directories after test execution.
+The framework generates:
+- **Allure Reports** in `allure-results`
+- **Playwright HTML reports** in `playwright-report`
+- **Cucumber-style feature results** in generated test artifacts
 
 ## 🧪 Test Scenarios
 
-### UI Test Scenarios
+### UI Scenarios
+- **E-commerce Checkout** (`@e2e @smoke`) — Complete purchase flow from login to order confirmation
+- **Cart Validation** (`@regression`) — Product addition and cart persistence
+- **Login Functionality** (`@regression`) — Valid/invalid login scenarios and validation
+- **Flight Booking** — Demo scenarios for travel booking flows
+- **Train Search** — Demo scenarios for transportation search
+- **Visual Testing** — Screenshot comparison and OCR text extraction
+- **Playwright Examples** — Documentation and learning scenarios
 
-- **Login Functionality**: Valid/invalid login scenarios
-- **E-commerce Operations**: Product ordering and management
-- **Visual Testing**: Screenshot comparison and chart analysis
-- **Navigation Tests**: Cross-application navigation flows
+### API Scenarios
+- **API Mocking** (`@skip`) — Response mocking and validation (currently disabled)
+- **Data Validation** — API response structure and data integrity
 
-### API Test Scenarios
-
-- **API Mocking**: Response mocking and validation
-- **Data Validation**: API response structure and data integrity
-- **Integration Testing**: End-to-end API workflows
+### Test Tags
+- `@smoke` — Critical business path validation (1 test)
+- `@regression` — Comprehensive validation including negative scenarios (3 tests)
+- `@e2e` — Full end-to-end business flows (2 tests)
+- `@skip` — Temporarily disabled tests
 
 ## 🌍 Environment Management
 
-The framework supports multiple environments:
+The framework supports multiple environments with environment-specific configurations:
 
 - **dev**: Development environment
-- **qa**: Quality Assurance environment  
+- **qa**: Quality Assurance environment
 - **uat**: User Acceptance Testing environment
 
-Switch between environments using the respective npm scripts or by setting the `ENV` environment variable.
+### Switching Environments
 
-## 🔧 Key Features
+```bash
+# Using npm scripts
+npm run test:dev
+npm run test:qa
+npm run test:uat
 
-### BDD Integration
-- Gherkin syntax for readable test scenarios
-- Automatic step definition generation
-- Support for tags and scenario filtering
+# Using environment variables
+ENV=dev npm test
+```
 
-### Visual Testing
-- Screenshot comparison capabilities
-- Chart and canvas element testing
-- OCR text extraction and validation
+### Configuration
 
-### Reporting & Debugging
-- Video recording of test execution
-- Screenshot capture on failure
-- Detailed trace information
-- Comprehensive error reporting
+Update `config.json` with environment-specific values:
 
-### Performance
-- Parallel test execution
-- Configurable timeouts
-- Efficient resource management
+```json
+{
+  "dev": {
+    "ECOMMERCE_URL": "https://rahulshettyacademy.com/client/#/auth/login",
+    "ECOMMERCE_USERNAME": "your-username",
+    "ECOMMERCE_PASSWORD": "your-password"
+  }
+}
+```
 
-## 📝 Writing New Tests
+## 🔄 CI/CD Integration
 
-1. Create feature files in the appropriate directory (`src/ui/feature/` or `src/api/feature/`)
-2. Write scenarios using Gherkin syntax
-3. Implement step definitions in the corresponding step directories
-4. Run `npx bddgen` to generate test files
-5. Execute tests using the provided npm scripts
+### GitHub Actions Example
+
+```yaml
+name: BDD Tests
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - run: npm ci
+      - run: npx playwright install --with-deps
+      - run: npm test
+      - run: npm run test:allure
+      - run: npm run allure:report
+        if: always()
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: allure-report
+          path: allure-report/
+```
+
+A ready-made GitHub Actions workflow is also available at `.github/workflows/ci.yml` to run all cases on every push to `main`, `master`, or `release/*` branches.
+
+### Jenkins Pipeline Example
+
+```groovy
+pipeline {
+    agent any
+    stages {
+        stage('Install Dependencies') {
+            steps {
+                sh 'npm ci'
+                sh 'npx playwright install'
+            }
+        }
+        stage('Run Tests') {
+            steps {
+                sh 'npm run test:smoke'
+            }
+        }
+        stage('Generate Reports') {
+            steps {
+                sh 'npm run test:allure'
+                sh 'npm run allure:report'
+            }
+        }
+    }
+    post {
+        always {
+            publishHTML(target: [
+                allowMissing: false,
+                alwaysLinkToLastBuild: true,
+                keepAll: true,
+                reportDir: 'allure-report',
+                reportFiles: 'index.html',
+                reportName: 'Allure Report'
+            ])
+        }
+    }
+}
+```
+
+## 🔧 Key Improvements
+
+This framework has been upgraded from a basic demo to production-ready status with:
+
+- ✅ **Real Business Scenarios**: Added authentic e-commerce checkout and cart validation flows
+- ✅ **Tagging Strategy**: Implemented @smoke, @regression, @e2e tags for selective execution
+- ✅ **Retry Mechanism**: Added retry support in Playwright config for flaky tests
+- ✅ **Reusable Steps**: Enhanced step definitions with better reusability and logging
+- ✅ **Execution Proof**: Added working demo commands and sample outputs
+- ✅ **Architecture Documentation**: Clear explanation of Feature → Step → Page → Playwright flow
+- ✅ **Environment Support**: Multi-environment configuration and execution
+- ✅ **Rich Reporting**: Allure, Playwright HTML, and Cucumber report integration
+- ✅ **Git Best Practices**: Updated .gitignore to exclude test artifacts
+- ✅ **TypeScript**: Full type safety throughout the framework
 
 ## 🤝 Contributing
 
 1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests for new functionality
-5. Ensure all tests pass
-6. Submit a pull request
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Add or update feature files and step definitions
+4. Run tests: `npm test`
+5. Commit your changes (`git commit -m 'Add amazing feature'`)
+6. Push to the branch (`git push origin feature/amazing-feature`)
+7. Open a Pull Request
+
+### Development Guidelines
+
+- Follow BDD principles: scenarios should be business-readable
+- Add appropriate tags (@smoke, @regression, @e2e)
+- Include step-level console logging for debugging
+- Update this README for any new features or changes
+- Ensure all tests pass before submitting PR
+
+## 👤 Author
+
+**Rahul Shukla**
+- GitHub: [@Shukla0312](https://github.com/Shukla0312)
+- LinkedIn: [Rahul Shukla](https://linkedin.com/in/rahul-shukla-0312)
 
 ## 📄 License
 
-This project is licensed under the ISC License.
+This project is licensed under the ISC License - see the [LICENSE](LICENSE) file for details.
 
 ## 📞 Support
 
-For questions or issues, please open an issue in the GitHub repository or contact the development team.
+For questions, issues, or contributions:
+
+- 🐛 **Bug Reports**: [Open an Issue](https://github.com/Shukla0312/playwright-bdd/issues)
+- 💡 **Feature Requests**: [Open an Issue](https://github.com/Shukla0312/playwright-bdd/issues)
+- 📧 **Contact**: Reach out via GitHub or LinkedIn
 
 ---
+
+**⭐ Star this repository if you find it helpful!**
 
 **Happy Testing! 🚀**

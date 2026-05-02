@@ -1,3 +1,14 @@
+# Test Results and Reports
+allure-results/
+allure-report/
+cucumber-report/
+playwright-report/
+test-results/
+.features-gen/
+
+# Screenshots and Visual Testing
+screenshots/
+
 # Dependencies
 node_modules/
 npm-debug.log*

@@ -1,11 +1,11 @@
-// Generated from: src\ui\feature\ecommerce\orderProduct.feature
+// Generated from: src/ui/feature/ecommerce/orderProduct.feature
 import { test } from "playwright-bdd";
 
 test.describe('Order Product', () => {
 
-  test('Successful Product Order', async ({ Given, page, When, Then, And }) => { 
-    await Given('I visit the eCommerce website', null, { page }); 
-    await When('I enter valid username and password on Ecommerce login Page', null, { page }); 
+  test('Successful Product Order', async ({ Given, When, Then, page, And }) => { 
+    await Given('I visit the eCommerce website'); 
+    await When('I enter valid username and password on Ecommerce login Page'); 
     await Then('I should be logged in successfully'); 
     await When('I add a "Zara Coat 3" to the cart', null, { page }); 
     await And('I view the cart'); 
@@ -22,7 +22,7 @@ test.beforeEach('BeforeEach Hooks', ({ $beforeEach }) => {});
 
 test.use({
   $test: ({}, use) => use(test),
-  $uri: ({}, use) => use('src\\ui\\feature\\ecommerce\\orderProduct.feature'),
+  $uri: ({}, use) => use('src/ui/feature/ecommerce/orderProduct.feature'),
   $bddFileData: ({}, use) => use(bddFileData),
   $beforeEachFixtures: ({ page }, use) => use({ page }),
 });

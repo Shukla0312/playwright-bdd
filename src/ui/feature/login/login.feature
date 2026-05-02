@@ -1,4 +1,4 @@
-@feature:Login
+@regression
 Feature: Login Functionality
   Scenario: Successful login with valid credentials
     Given I visit the eCommerce website
@@ -12,7 +12,7 @@ Feature: Login Functionality
     When I enter invalid username and password on Ecommerce login Page
     Then I should see an error message
 
-  Scenario: Failed login without credentials
+  Scenario: Required field validation on login form
     Given I visit the eCommerce website
     When I click on the login button without entering credentials
     Then I should see a mandatory field error message

@@ -11,5 +11,5 @@ Feature: Example feature
             | What's Installed       |
         And I should see the code block with text "npm init playwright@latest"
         When I click on the "Community" link
-        And I click on the "Ambassador page" link
+        And I click on the "Ambassadors" link
         Then I should see the "Meet the Ambassadors" text

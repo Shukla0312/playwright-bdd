@@ -1,4 +1,4 @@
-// Generated from: src\ui\feature\blazeDemo\blazeDemo.feature
+// Generated from: src/ui/feature/blazeDemo/blazeDemo.feature
 import { test } from "playwright-bdd";
 
 test.describe('Purchase a flight from Boston to London on BlazeDemo', () => {
@@ -22,7 +22,7 @@ test.beforeEach('BeforeEach Hooks', ({ $beforeEach }) => {});
 
 test.use({
   $test: ({}, use) => use(test),
-  $uri: ({}, use) => use('src\\ui\\feature\\blazeDemo\\blazeDemo.feature'),
+  $uri: ({}, use) => use('src/ui/feature/blazeDemo/blazeDemo.feature'),
   $bddFileData: ({}, use) => use(bddFileData),
   $beforeEachFixtures: ({ page }, use) => use({ page }),
 });

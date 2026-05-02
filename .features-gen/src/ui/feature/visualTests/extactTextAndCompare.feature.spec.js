@@ -1,4 +1,4 @@
-// Generated from: src\ui\feature\visualTests\extactTextAndCompare.feature
+// Generated from: src/ui/feature/visualTests/extactTextAndCompare.feature
 import { test } from "playwright-bdd";
 
 test.describe('OCR from image', () => {
@@ -17,7 +17,7 @@ test.beforeEach('BeforeEach Hooks', ({ $beforeEach }) => {});
 
 test.use({
   $test: ({}, use) => use(test),
-  $uri: ({}, use) => use('src\\ui\\feature\\visualTests\\extactTextAndCompare.feature'),
+  $uri: ({}, use) => use('src/ui/feature/visualTests/extactTextAndCompare.feature'),
   $bddFileData: ({}, use) => use(bddFileData),
   $beforeEachFixtures: ({ page }, use) => use({ page }),
 });

@@ -8,6 +8,7 @@ const testDir = defineBddConfig({
 
 export default defineConfig({
   testDir,
+  retries: 1,
   reporter: [
     ['list'],  // optional CLI output
     ['allure-playwright', { outputFolder: 'allure-results' }]

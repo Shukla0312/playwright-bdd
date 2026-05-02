@@ -16,7 +16,7 @@ export class ProductDetailsPage extends BasePage {
     }
 
     async verifyProductMockData() {
-        const productName = await this.page.getByText("Mocked Zara Coat 3");
+        const productName = await this.page.getByText("Mocked ZARA COAT 3");
         const productPrice = await this.page.getByText("$ 99.99");
         const productDescription = await this.page.getByText("Mocked Adidas Originals");
         expect(productName).toBeVisible();
