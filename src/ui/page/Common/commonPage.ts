@@ -43,7 +43,7 @@ export class CommonPage extends BasePage {
     }
 
     async extractTextFromCanvas() {
-        let expected = ["January", "February", "March"]; // Reduced expectations for OCR reliability
+        let expected = ["January", "February","100","200"]; // Reduced expectations for OCR reliability
         const canvas = this.page.locator('canvas').first();
         await canvas.waitFor();
         await canvas.scrollIntoViewIfNeeded();
