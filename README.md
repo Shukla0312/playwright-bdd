@@ -493,7 +493,7 @@ This framework has been upgraded from a basic demo to production-ready status wi
 
 **Rahul Shukla**
 - GitHub: [@Shukla0312](https://github.com/Shukla0312)
-- LinkedIn: [Rahul Shukla](https://linkedin.com/in/rahul-shukla-qa)
+- LinkedIn: [Rahul Shukla]((https://www.linkedin.com/in/rahul-shukla-qa/))
 
 ## 📄 License
 
